@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    height: 85vh;
+    width: 80vw;
+    background-color:#1a0d52;
+    border-radius: 10px;
+}
+
+.ball{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: pink;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
