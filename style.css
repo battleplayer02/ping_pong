@@ -12,8 +12,11 @@ body{
 }
 
 .board{
+    justify-content: center;
+    align-items: center;
     height: 85vh;
     width: 80vw;
+    display: flex;
     background-color:#1a0d52;
     border-radius: 10px;
 }
@@ -26,4 +29,20 @@ body{
     position: fixed;
     top: 50%;
     left: 50%;
+}
+.paddle{
+    height: 120px;
+    width: 15px;
+    position: fixed;
+    border-radius: 5px;
+    background-color: pink;
+
+}
+.left{
+    
+    left: 12vw;
+}
+.right{
+    
+    right: 12vw;
 }

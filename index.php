@@ -10,11 +10,12 @@
 <body>
     <!-- board -->
     <div class="board">
+        <div class="paddle left"></div>
+
         <div class="ball"></div>
+        
+        <div class="paddle right"></div>
     </div>
-    <!-- scorecard -->
-    <!-- left paddle -->
-    <!-- ball -->
-    <!-- right paddle -->
+    
 </body>
 </html>
