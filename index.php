@@ -12,7 +12,7 @@
     <div class="board">
         <div class="paddle left"></div>
 
-        <div class="ball"></div>
+        <div class="ball" id="ball"></div>
         
         <div class="paddle right"></div>
     </div>

@@ -1,18 +1,15 @@
 // alert("5"); 
-let lifeP1 = 3;
-let lifeP2 = 3;
+let lifeLeft = 3;
+let lifeRight = 3;
 
 
 let eleBall = document.querySelector('.ball');
 let ball = eleBall.getBoundingClientRect();
 let pt = ball.top;
 let pl = ball.left;
-
 let verticalfalg = 0;
 let horizontalfalg = 0;
 const move = () => {
-
-
 
     let eleBall = document.querySelector('.ball');
     let ball = eleBall.getBoundingClientRect();
@@ -23,13 +20,24 @@ const move = () => {
     let rightPaddle = document.querySelector(".right").getBoundingClientRect();
     let leftPaddle = document.querySelector(".left").getBoundingClientRect();
 
-    if(ball.right >= rightPaddle.right){
-        eleBall.style.top = pl;
-        eleBall.style.left = pt;
+    if(lifeLeft == 0){
+        alert("left har gya ");
     }
-    if(ball.left <= leftPaddle.left){
-        eleBall.style.top = pt;
-        eleBall.style.left = pl;
+
+    if(lifeRight == 0){
+        alert("right har gya ");
+    }
+
+    //handel life
+    if(ball.left < leftPaddle.left)
+    {
+        lifeLeft--;
+        horizontalfalg = 0;
+    }
+    if(ball.right > rightPaddle.left){
+        lifeRight--;
+        horizontalfalg = 5;
+        
     }
 
     //handel vertical bound
@@ -41,30 +49,30 @@ const move = () => {
     }
 
     if (verticalfalg == 0) {
-        let { left, top, bottom, right } = eleBall.getBoundingClientRect();
-        eleBall.style.top = top + 5 + "px";
+        let {top} = ball;
+        eleBall.style.top = top + 3 + "px";
 
     }
     if (verticalfalg == 5) {
-        let { left, top, bottom, right } = eleBall.getBoundingClientRect();
-        eleBall.style.top = top - 5 + "px";
+        let { top } = ball;
+        eleBall.style.top = top - 3 + "px";
     }
     //handel horizontal
-    if (ball.left < board.left) {
+    if (ball.left < leftPaddle.right && ball.top > leftPaddle.top && ball.bottom < leftPaddle.bottom) {
         horizontalfalg = 0;
     }
-    if (ball.right > board.right) {
+    else if (ball.right > rightPaddle.left && ball.top > rightPaddle.top && ball.bottom < rightPaddle.bottom) {
         horizontalfalg = 5;
     }
 
-    if (horizontalfalg == 0) {
-        let { left, top, bottom, right } = eleBall.getBoundingClientRect();
-        eleBall.style.left = left + 5 + "px";
 
+
+    //handel horizontal ball movement
+    if (horizontalfalg == 0) {
+        eleBall.style.left = ball.left + 3 + "px";
     }
     if (horizontalfalg == 5) {
-        let { left, top, bottom, right } = eleBall.getBoundingClientRect();
-        eleBall.style.left = left - 5 + "px";
+        eleBall.style.left = ball.left - 3 + "px";
     }
 
     requestAnimationFrame(move);
@@ -83,17 +91,17 @@ document.addEventListener(
         let elePaddleRight = document.querySelector(".left");
 
         if (key.key == "ArrowUp") {
-            movePaddle(elePaddleLeft,-10);
+            movePaddle(elePaddleLeft,-20);
         }
         else if (key.key == "ArrowDown") {
-            movePaddle(elePaddleLeft,10);
+            movePaddle(elePaddleLeft,20);
 
         }
         else if (key.key == "w") {
-            movePaddle(elePaddleRight,-10);
+            movePaddle(elePaddleRight,-20);
         }
         else if (key.key == "s") {
-            movePaddle(elePaddleRight,10);
+            movePaddle(elePaddleRight,20);
         }
     }
 );
