@@ -20,24 +20,24 @@ const move = () => {
     let rightPaddle = document.querySelector(".right").getBoundingClientRect();
     let leftPaddle = document.querySelector(".left").getBoundingClientRect();
 
-    if(lifeLeft == 0){
-        alert("left har gya ");
-    }
-
-    if(lifeRight == 0){
-        alert("right har gya ");
-    }
 
     //handel life
     if(ball.left < leftPaddle.left)
     {
         lifeLeft--;
         horizontalfalg = 0;
+        
+        if(lifeLeft == 0){
+            alert("left har gya ");
+        }
+
     }
     if(ball.right > rightPaddle.left){
         lifeRight--;
         horizontalfalg = 5;
-        
+        if(lifeLeft == 0){
+            alert("left har gya ");
+        }
     }
 
     //handel vertical bound
